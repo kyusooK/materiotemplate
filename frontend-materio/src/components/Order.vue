@@ -21,17 +21,11 @@
 <script>
 
 import BaseEntity from './base-ui/BaseEntity.vue'
-import Number from './primitives/Number.vue'
-import String from './primitives/String.vue'
-import Number from './primitives/Number.vue'
 
 export default {
     name: 'Order',
     mixins:[BaseEntity],
     components:{
-        Number,
-        String,
-        Number,
     },
     
     data: () => ({

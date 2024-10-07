@@ -28,4 +28,4 @@ package-lock.json
 *.njsproj
 *.sln
 *.sw?
-
+.DS_Store

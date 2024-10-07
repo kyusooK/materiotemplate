@@ -119,19 +119,12 @@
 import { ref } from 'vue';
 import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
-import Order from '../Order.vue'
-import Number from '../primitives/Number.vue'
-import String from '../primitives/String.vue'
-import Number from '../primitives/Number.vue'
+
 
 export default {
     name: 'orderGrid',
     mixins:[BaseGrid],
     components:{
-        Order,
-        Number,
-        String,
-        Number,
     },
     data: () => ({
         path: 'orders',

@@ -113,15 +113,12 @@
 import { ref } from 'vue';
 import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
-import Inventory from '../Inventory.vue'
-import Number from '../primitives/Number.vue'
+
 
 export default {
     name: 'inventoryGrid',
     mixins:[BaseGrid],
     components:{
-        Inventory,
-        Number,
     },
     data: () => ({
         path: 'inventories',

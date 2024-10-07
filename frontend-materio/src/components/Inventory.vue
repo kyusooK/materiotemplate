@@ -19,13 +19,11 @@
 <script>
 
 import BaseEntity from './base-ui/BaseEntity.vue'
-import Number from './primitives/Number.vue'
 
 export default {
     name: 'Inventory',
     mixins:[BaseEntity],
     components:{
-        Number,
     },
     
     data: () => ({

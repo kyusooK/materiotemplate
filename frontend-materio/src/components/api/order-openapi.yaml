@@ -1,0 +1,166 @@
+---
+openapi: 3.0.2
+info:
+  title: Order
+  version: 0.0.1
+  description: API definition of order
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+paths:
+  /orders:
+    summary: Global operations on orders
+    get:
+      tags:
+        - orders
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+              examples:
+                orders_json:
+                  value:
+                    - id: 1
+                      productId: 1
+                      productName: A string
+                      qty: 1
+          description: Get list of orders
+      operationId: GetOrder
+      summary: Get list of orders
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  productId: 1
+                  productName: A string
+                  qty: 1
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: 1
+                    productName: A string
+                    qty: 1
+          description: Changed Order
+      operationId: Post Order
+      summary: Post Order
+  '/orders/{id}':
+    summary: Specific operation on orders
+    get:
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Order name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: 1
+                    productName: A string
+                    qty: 1
+          description: orders with specified id
+      operationId: GetOrderById
+      summary: Get Order by id
+      description: Get Order by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  productId: 1
+                  productName: A string
+                  qty: 1
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Order name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: 1
+                    productName: A string
+                    qty: 1
+          description: Changed Order
+      operationId: PatchOrder
+      summary: Patch existing Order
+    parameters:
+      - name: id
+        description: Order id
+        schema:
+          type: integer
+        in: path
+        required: true
+components:
+  schemas:
+    Order:
+      title: Root Type for Order
+      description: The root of the Order type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Order
+          type: integer
+        productId:
+          description: productId of this Order
+          type: integer
+        productName:
+          description: productName of this Order
+          type: string
+        qty:
+          description: qty of this Order
+          type: integer
+tags:
+  - name: Order
+    description: Order resource
